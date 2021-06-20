@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class AddressBookImplementation implements IAddressBook {
 
+	private static AddressBookImplementation addressBookImplementation;
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Person> personList = new ArrayList<Person>();
 
@@ -120,9 +121,21 @@ public class AddressBookImplementation implements IAddressBook {
 	 * Uc7: Ability to ensure there is no Duplicate Entry of the same Person in a
 	 * particular Address Book.
 	 */
-	
+
 	@Override
 	public void searchPersonByName(String firstname) {
+		List listPerson = (List) personList.stream()
+				.filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstname)).collect(Collectors.toList());
+		personList.stream().forEach(System.out::println);
+	}
+
+	/**
+	 * Uc8: Ability to search person in a city or state across the multiple
+	 * AddressBook
+	 */
+
+	@Override
+	public void searchPersonByState(String firstname) {
 		List listPerson = (List) personList.stream()
 				.filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstname)).collect(Collectors.toList());
 		personList.stream().forEach(System.out::println);
@@ -136,7 +149,7 @@ public class AddressBookImplementation implements IAddressBook {
 		while (condition == true) {
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("1.add" + "\n" + "2.Display" + "\n" + "3.Edit" + "\n" + "4.Delete" + "\n"
-					+ "5.Add MultiplePerson" + "\n" + "6.SearchByName");
+					+ "5.Add MultiplePerson" + "\n" + "6.SearchByName" + "\n" + "7.SearchByState");
 			Scanner option = new Scanner(System.in);
 
 			switch (option.nextInt()) {
@@ -163,6 +176,11 @@ public class AddressBookImplementation implements IAddressBook {
 				System.out.println("Enter a Name");
 				String firstName1 = scanner.nextLine();
 				adressBookImplementation.searchPersonByName(firstName1);
+				break;
+			case 7:
+				System.out.println("Enter a name");
+				String state = scanner.nextLine();
+				addressBookImplementation.searchPersonByState(state);
 				break;
 			default:
 				System.out.println();
