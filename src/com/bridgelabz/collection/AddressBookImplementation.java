@@ -95,13 +95,21 @@ public class AddressBookImplementation implements IAddressBook {
 	/**
 	 * Uc5: Ability to add multiple person to Address Book
 	 */
-	
+
 	@Override
 	public void addMultiplePerson() {
 		System.out.println("Enter a person Name:");
 		String firstName = scanner.nextLine();
 		for (int i = 0; i < personList.size(); i++) {
 			Person person = personList.get(i);
+			
+			/**
+			 * Uc6: Ability to add multiple adress book to the system each adress book has unique name
+			 */
+			
+			if (personList.get(i).getFirstName().equals(firstName)) {
+				System.out.println("Duplicate");
+			}
 		}
 	}
 
@@ -112,7 +120,8 @@ public class AddressBookImplementation implements IAddressBook {
 
 		while (condition == true) {
 			Scanner scanner = new Scanner(System.in);
-			System.out.println("1.add" + "\n" + "2.Display" + "\n" + "3.Edit" + "\n" + "4.Delete" + "\n" + "5.Add MultiplePerson");
+			System.out.println(
+					"1.add" + "\n" + "2.Display" + "\n" + "3.Edit" + "\n" + "4.Delete" + "\n" + "5.Add MultiplePerson");
 			Scanner option = new Scanner(System.in);
 
 			switch (option.nextInt()) {
