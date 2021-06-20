@@ -8,4 +8,5 @@ public interface IAddressBook {
 	void addMultiplePerson();
 	void searchPersonByName(String firstname);
 	void searchPersonByState(String firstName);
+	void viewByCity(String city);
 }
