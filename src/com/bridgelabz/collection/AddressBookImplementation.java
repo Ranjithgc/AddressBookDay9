@@ -148,7 +148,7 @@ public class AddressBookImplementation implements IAddressBook {
 	@Override
 	public void viewByCity(String city) {
 		Collection<Person> list;
-		List people = (List) list.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(city))
+		List people = (List) personList.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(city))
 				.collect(Collectors.toList());
 
 		for (Person person : personList) {
@@ -163,7 +163,7 @@ public class AddressBookImplementation implements IAddressBook {
 	@Override
 	public void searchPersonInCity(String firstName) {
 		Collection<Person> list;
-		List people = (List) list.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstName))
+		List people = (List) personList.stream().filter(person1 -> person1.getFirstName().equalsIgnoreCase(firstName))
 				.collect(Collectors.toList());
 
 		for (Person person : personList) {
