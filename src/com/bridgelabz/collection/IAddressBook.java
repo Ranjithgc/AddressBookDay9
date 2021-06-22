@@ -10,4 +10,6 @@ public interface IAddressBook {
 	void searchPersonByState(String firstName);
 	void viewByCity(String city);
 	void searchPersonInCity(String firstName);
+	void sortByFirstName();
+	void sortByZipcode();
 }
